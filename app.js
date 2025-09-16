@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 app.use('/api/users', userRoutes);
 
 // Handle undefined routes
-app.all('*', (req, res, next) => {
+app.use((req, res, next) => {
   next(ErrorFactory.notFound(`Route ${req.originalUrl}`));
 });
 
